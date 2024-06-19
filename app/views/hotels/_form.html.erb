@@ -3,7 +3,7 @@
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
       <h2><%= pluralize(hotel.errors.count, "error") %> prohibited this hotel from being saved:</h2>
 
-      <ul>
+      <ul class="list-disc list-inside ml-4">
         <% hotel.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
@@ -43,5 +43,7 @@
 
   <div class="inline">
     <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+    <%= link_to "Cancel", dashboard_path, class: "rounded-lg py-3 px-5 bg-red-600 text-white inline-block font-medium cursor-pointer" %>
   </div>
 <% end %>
+

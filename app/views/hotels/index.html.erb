@@ -1,21 +1,28 @@
-<div class="w-full">
-  <% if notice.present? %>
-    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
-  <% end %>
-
-  <% content_for :title, "Hotels" %>
-
-  <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Hotels</h1>
-    <%= link_to "New hotel", new_hotel_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
-  </div>
-
-  <div id="hotels" class="min-w-full">
-    <% @hotels.each do |hotel| %>
-      <%= render hotel %>
-      <p>
-        <%= link_to "Show this hotel", hotel, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-      </p>
+<%= turbo_frame_tag "content_turbo_frame" do %>
+  <div class="w-full">
+    <% if notice.present? %>
+      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
     <% end %>
+
+    <% content_for :title, "Hotels" %>
+
+    <div class="flex justify-between items-center">
+      <div><h1 class="font-bold text-4xl">Hotels</h1></div>
+      <div class="flex flex-row gap-x-2">
+        <%= link_to "New hotel", new_hotel_path, 
+            class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium",
+            data: { turbo_frame: "content_turbo_frame" } %>
+        <%= link_to "Cancel", dashboard_path, class: "rounded-lg py-3 px-5 bg-red-600 text-white block font-medium" %>
+      </div>
+    </div>
+
+    <div id="hotels" class="min-w-full">
+      <% @hotels.each do |hotel| %>
+        <%= render hotel %>
+        <p>
+          <%= link_to "Show this hotel", hotel, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+        </p>
+      <% end %>
+    </div>
   </div>
-</div>
+<% end %>
