@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  address: MyText
+  phone: MyString
+  stars: 1
+  check_in_time: 2024-06-19 22:31:57
+  check_out_time: 2024-06-19 22:31:57
+
+two:
+  name: MyString
+  address: MyText
+  phone: MyString
+  stars: 1
+  check_in_time: 2024-06-19 22:31:57
+  check_out_time: 2024-06-19 22:31:57
