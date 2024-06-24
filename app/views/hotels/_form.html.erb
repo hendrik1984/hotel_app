@@ -28,7 +28,14 @@
 
   <div class="my-5">
     <%= form.label :stars %>
-    <%= form.number_field :stars, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+    <%#= form.number_field :stars, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+    <div class="px-3 py-2 mt-2 w-full" >
+      1 <%= form.radio_button :stars, "1" %>
+      2 <%= form.radio_button :stars, "2" %>
+      3 <%= form.radio_button :stars, "3" %>
+      4 <%= form.radio_button :stars, "4" %>
+      5 <%= form.radio_button :stars, "5" %>
+    </div>
   </div>
 
   <div class="my-5">
