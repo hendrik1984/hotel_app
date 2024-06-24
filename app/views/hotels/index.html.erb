@@ -16,13 +16,47 @@
       </div>
     </div>
 
-    <div id="hotels" class="min-w-full">
-      <% @hotels.each do |hotel| %>
-        <%= render hotel %>
-        <p>
-          <%= link_to "Show this hotel", hotel, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-        </p>
-      <% end %>
+    <div id="hotels" class="relative overflow-x-auto min-w-full mt-4">
+      <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <tr>
+              <th scope="col" class="px-6 py-3">
+                  Name
+              </th>
+              <th scope="col" class="px-6 py-3">
+                  Address
+              </th>
+              <th scope="col" class="px-6 py-3">
+                  Phone
+              </th>
+              <th scope="col" class="px-6 py-3">
+                  Stars
+              </th>
+              <th scope="col" class="px-6 py-3">
+                  Check in time
+              </th>
+              <th scope="col" class="px-6 py-3">
+                  Check out time
+              </th>
+              <th>
+                Actions
+              </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @hotels.each do |hotel| %>
+            <div id="<%= dom_id hotel %>">
+              <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <%= render hotel %>
+                <td>
+                  <%= link_to "Edit", edit_hotel_path(hotel), class: "rounded-lg py-3 px-5 bg-yellow-100 inline-block font-medium" %>
+                  <%= button_to "Delete", hotel, method: :delete, class: "rounded-lg py-3 px-5 bg-red-100 font-medium" %>
+                </td>
+              </tr>
+            </div>
+          <% end %>
+        </tbody>
+      </table>
     </div>
   </div>
 <% end %>

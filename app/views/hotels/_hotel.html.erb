@@ -1,32 +1,18 @@
-<div id="<%= dom_id hotel %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Name:</strong>
+<th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
     <%= hotel.name %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Address:</strong>
+</th>
+<td class="px-6 py-4">
     <%= hotel.address %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Phone:</strong>
+</td>
+<td class="px-6 py-4">
     <%= hotel.phone %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Stars:</strong>
+</td>
+<td class="px-6 py-4">
     <%= hotel.stars %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Check in time:</strong>
-    <%= hotel.check_in_time %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Check out time:</strong>
-    <%= hotel.check_out_time %>
-  </p>
-
-</div>
+</td>
+<td>
+  <%= hotel.check_in_time %>
+</td>
+<td>
+  <%= hotel.check_out_time %>
+</td>
