@@ -49,7 +49,9 @@
               <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                 <%= render hotel %>
                 <td>
-                  <%= link_to "Edit", edit_hotel_path(hotel), class: "rounded-lg py-3 px-5 bg-yellow-100 inline-block font-medium" %>
+                  <%= link_to "Edit", edit_hotel_path(hotel), 
+                      data: { turbo_frame: "content_turbo_frame"},
+                      class: "rounded-lg py-3 px-5 bg-yellow-100 inline-block font-medium" %>
                   <%= button_to "Delete", hotel, method: :delete, class: "rounded-lg py-3 px-5 bg-red-100 font-medium" %>
                 </td>
               </tr>
