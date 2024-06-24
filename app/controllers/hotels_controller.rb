@@ -6,6 +6,17 @@ class HotelsController < ApplicationController
     @hotels = Hotel.all
   end
 
+  def search
+    @hotels = Hotel.where("name LIKE ?", "%#{params[:search]}%").order(created_at: :desc)
+    
+    p @hotels
+    respond_to do |f|
+      
+      f.json { render json: render_to_string(partial: 'hotels/hotel', collection: @hotels, formats: [:html])}
+    end
+
+  end
+
   # GET /hotels/1 or /hotels/1.json
   def show
   end
@@ -38,10 +49,8 @@ class HotelsController < ApplicationController
     respond_to do |format|
       if @hotel.update(hotel_params)
         format.html { redirect_to hotels_url(@hotel), notice: "Hotel was successfully updated." }
-        
       else
         format.html { render :edit, status: :unprocessable_entity }
-
       end
     end
   end
@@ -64,6 +73,6 @@ class HotelsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def hotel_params
-      params.require(:hotel).permit(:name, :address, :phone, :stars, :check_in_time, :check_out_time)
+      params.require(:hotel).permit(:name, :address, :phone, :stars, :check_in_time, :check_out_time, :search)
     end
 end
