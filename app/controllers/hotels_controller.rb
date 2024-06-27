@@ -8,10 +8,8 @@ class HotelsController < ApplicationController
 
   def search
     @hotels = Hotel.where("name LIKE ?", "%#{params[:search]}%").order(created_at: :desc)
-    
-    p @hotels
+
     respond_to do |f|
-      
       f.json { render json: render_to_string(partial: 'hotels/hotel', collection: @hotels, formats: [:html])}
     end
 
