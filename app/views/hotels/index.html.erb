@@ -9,15 +9,7 @@
     <div class="flex justify-between items-center">
       <div class="flex" data-controller="hotel-search">
         <h1 class="font-bold text-4xl">Hotels</h1>
-        <%#= render 'form_search' %>  
-        <%= form_with(model: Hotel, class: 'contents') do |f| %>
-          <%= f.text_field :search, 
-              data: {
-                action: 'input->hotel-search#search',
-                hotel_search_target: 'params'
-              },
-              class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 w-full", placeholder:"search..." %>
-        <% end %>
+        <%#= render 'form_search' %>
       </div>
       <div class="flex flex-row gap-x-2">
         <%= link_to "New hotel", new_hotel_path, 
