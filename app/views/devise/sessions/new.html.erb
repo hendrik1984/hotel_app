@@ -1,7 +1,11 @@
-<h1 class="text-2xl mb-4">Sourlemon Hotel</h1>
+<div class="flex justify-center"> 
+  <h1 class='text-2xl mb-4'>
+    <%= link_to "Sourlemon Hotel", root_path %>
+  </h1>
+</div>
 
 <div>
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "max-w-sm mx-auto"}) do |f| %>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "max-w-sm mx-auto block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow"}) do |f| %>
     <div class="mb-5">
       <%= f.label :email, class: "block text-sm font-medium text-gray-900 dark:text-white" %><br />
       <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
@@ -28,9 +32,6 @@
     </div>
 
     <%= render "devise/shared/links" %>
-    <%= link_to "Home", root_path %>
   <% end %>
-
-  
 
 </div>
