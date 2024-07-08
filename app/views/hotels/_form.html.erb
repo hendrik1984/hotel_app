@@ -27,30 +27,27 @@
   </div>
 
   <div class="my-5">
-    <%= form.label :stars %>
-    <%#= form.number_field :stars, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
-    <div class="px-3 py-2 mt-2 w-full" >
-      1 <%= form.radio_button :stars, "1" %>
-      2 <%= form.radio_button :stars, "2" %>
-      3 <%= form.radio_button :stars, "3" %>
-      4 <%= form.radio_button :stars, "4" %>
-      5 <%= form.radio_button :stars, "5" %>
-    </div>
+    <%= form.label :geolocation %>
+    <%= form.text_field :geolocation, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
-    <%= form.label :check_in_time %>
-    <%= form.datetime_field :check_in_time, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.label :descriptions %>
+    <%= form.text_area :descriptions, rows: 4, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
-    <%= form.label :check_out_time %>
-    <%= form.datetime_field :check_out_time, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.label :country %>
+    <%= select_tag(:country, options_for_select([['Select', ''], ['Indonesia', 'indonesia'], ['Japan', 'japan']]), class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full") %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :score %>
+    <%= form.text_field :score, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="inline">
     <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
-    <%#= link_to "Cancel", dashboard_path, class: "rounded-lg py-3 px-5 bg-red-600 text-white inline-block font-medium cursor-pointer" %>
     <%= link_to 'Cancel',
                   hotels_path,
                   data: { turbo_frame: "content_turbo_frame" },
