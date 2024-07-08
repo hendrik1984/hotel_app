@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_06_27_081133) do
+ActiveRecord::Schema[7.0].define(version: 2024_07_08_132340) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -18,11 +18,12 @@ ActiveRecord::Schema[7.0].define(version: 2024_06_27_081133) do
     t.string "name"
     t.text "address"
     t.string "phone"
-    t.integer "stars"
-    t.datetime "check_in_time"
-    t.datetime "check_out_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "geolocation"
+    t.string "desriptions"
+    t.string "country"
+    t.integer "score"
   end
 
   create_table "users", force: :cascade do |t|
@@ -38,10 +39,9 @@ ActiveRecord::Schema[7.0].define(version: 2024_06_27_081133) do
     t.string "last_name"
     t.string "role"
     t.string "gender"
-    t.string "marital_status"
-    t.string "ktp_id"
-    t.string "blood_type"
-    t.string "phone_number"
+    t.string "country"
+    t.string "phone_no"
+    t.string "id_card"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
