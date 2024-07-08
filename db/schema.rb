@@ -21,7 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_08_132340) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "geolocation"
-    t.string "desriptions"
+    t.string "descriptions"
     t.string "country"
     t.integer "score"
   end
