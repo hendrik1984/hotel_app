@@ -3,7 +3,7 @@ class HotelsController < ApplicationController
 
   # GET /hotels or /hotels.json
   def index
-    @hotels = Hotel.all
+    @hotels = Hotel.order(:id).page params[:page]
   end
 
   def search
