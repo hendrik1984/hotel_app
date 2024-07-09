@@ -35,7 +35,6 @@ class HotelsController < ApplicationController
     respond_to do |format|
       if @hotel.save
         format.html { redirect_to hotels_url(@hotel), notice: "Hotel was successfully created." }
-
       else
         format.html { render :new, status: :unprocessable_entity }
       end
