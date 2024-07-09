@@ -1,0 +1,67 @@
+  
+    <%#= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+    <%#= link_to 'Cancel',
+                  user_managements_path,
+                  data: { turbo_frame: "content_turbo_frame" },
+                  class: "rounded-lg py-3 px-5 bg-red-600 text-white inline-block font-medium cursor-pointer"
+              %>
+  
+<%= form_with(url: user_managements_path, class: "contents") do |form| %>
+
+  <% if user.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul class="list-disc list-inside ml-4">
+        <% user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="grid gap-6 mb-6 md:grid-cols-2">
+    <div>
+        <%= form.label :first_name, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+        <%= form.text_field :first_name, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+    </div>
+    <div>
+        <%= form.label :last_name, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+        <%= form.text_field :last_name, class:"bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>    
+    </div>
+    <div>
+        <%= form.label :email, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+        <%= form.text_field :email, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+    </div>  
+    <div>
+        <%= form.label :phone_no, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white"%>
+        <%= form.text_field :phone_no, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+    </div>
+    <div>
+        <%= form.label :role, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+        <%= form.text_field :role, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+    </div> 
+    <div>
+        <%= form.label :gender, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+        <%= form.text_field :gender, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+    </div> 
+    <div>
+        <%= form.label :id_card, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+        <%= form.text_field :id_card, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+    </div> 
+  </div>
+  <div>
+    <div class="mb-6">
+      <%= form.label :descriptions, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+      <%= form.text_area :descriptions, class: "block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", :rows => 4 %>
+    </div>
+    
+    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+    <%= link_to 'Cancel',
+                  user_managements_path,
+                  data: { turbo_frame: "content_turbo_frame" },
+                  class: "rounded-lg py-3 px-5 bg-red-600 text-white inline-block font-medium cursor-pointer"
+              %>
+  </div>
+
+<% end %>

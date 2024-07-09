@@ -5,7 +5,8 @@ Rails.application.routes.draw do
 
   # List Resources
   resources :hotels
-  
+  resources :user_managements
+
   # Devise
   devise_for :users
 
