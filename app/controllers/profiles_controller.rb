@@ -35,7 +35,6 @@ class ProfilesController < ApplicationController
 
   # PATCH/PUT /profiles/1 or /profiles/1.json
   def update
-    # @profile = Profile.find(params[:id])
     respond_to do |format|
       if @profile.update(profile_params)
         format.html { redirect_to profiles_url, notice: "Profile was successfully updated." }
