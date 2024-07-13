@@ -10,7 +10,6 @@ class UsersController < ApplicationController
   end
 
   def create
-    debugger
     @user = User.new(user_params)
     
     respond_to do |format|
