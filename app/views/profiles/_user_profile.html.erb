@@ -11,7 +11,7 @@
         Name: <%= user.profile.nil? ? '-' : "#{user.profile.first_name} #{user.profile.last_name}"  %>
       </p>
       <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-        Status: Active or Blocked (implement this feature later)
+        Status: <%= user.status == true ? 'Active' : 'Inactive' %>
       </p>
       <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
         Role: <%= user.profile.nil? ? '-' : "#{user.profile.role}"  %>
