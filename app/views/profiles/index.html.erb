@@ -16,16 +16,11 @@
     </div>
 
     <div id="profiles" class="flex flex-wrap gap-2">
-      <% @users.each do |user| %>
-        <%#= user %>
-        <%= render 'user_profile', user: user %>
-        <!--<p>
-          <%#= link_to "Show this profile", profile, 
-              data: { turbo_frame: "content_turbo_frame" } 
-              class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-        </p>-->
+      <% if @users.present? %>
+        <% @users.each do |user| %>
+          <%= render 'user_profile', user: user %>
+        <% end %>
       <% end %>
-
     </div>
   </div>
 <% end %>
