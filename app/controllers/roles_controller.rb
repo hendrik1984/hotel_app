@@ -26,6 +26,7 @@ class RolesController < ApplicationController
     respond_to do |format|
       if @role.save
         format.html { redirect_to roles_url, notice: "Role #{@role.name} was successfully created." }
+        format.turbo_stream
       else
         format.html { render :new, status: :unprocessable_entity }
       end
