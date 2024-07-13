@@ -4,6 +4,12 @@ class RolesController < ApplicationController
   # GET /roles or /roles.json
   def index
     @roles = Role.order(:id).page params[:page]
+    if params[:page].present?
+      session[:role_page] = params[:page].to_i * 10
+    else
+      session[:role_page] = 0
+    end
+    
   end
 
   # GET /roles/1 or /roles/1.json

@@ -1,2 +1,2 @@
-<%= turbo_stream.prepend "content_frame_tag_lists", partial: "roles/role", locals: {role: @role} %>
+<%= turbo_stream.append "content_frame_tag_lists", partial: "roles/role_stream", locals: {role: @role} %>
 <%= turbo_stream.update Role.new, "" %>

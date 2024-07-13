@@ -18,27 +18,42 @@
       <% end %>
     </div>
 
-    <div id="roles" class="grid grid-cols-4 mt-2 gap-2 items-center">
-      <div class="text-lg font-bold ">No.</div>
-      <div class="text-lg font-bold">Name</div>
-      <div class="text-lg font-bold">Actions</div>
-      <div></div>
-      <% @roles.each_with_index do |role, index| %>
-        <div>
-          <%= index+1 %>
-        </div>
-        <div id="<%= dom_id role %>">
-          <%= render role %>
-        </div>
-        <div class="flex flex-row gap-4">
-            <%= link_to "Edit", edit_role_path(role), 
-                data: { turbo_frame: "content_turbo_frame"},
-                class: "rounded-lg py-3 px-5 bg-yellow-100 inline-block font-medium" %>
-            <%= button_to "Delete", role, method: :delete, class: "rounded-lg py-3 px-5 bg-red-100 font-medium" %>
-        </div>
+    <div id="roles">
+      <div class="grid grid-cols-4 gap-2 mt-2">
+        <div class="text-lg font-bold ">No.</div>
+        <div class="text-lg font-bold">Name</div>
+        <div class="text-lg font-bold">Actions</div>
         <div></div>
-      <% end %>
+      </div>
+          
+      <div class="grid grid-cols-4 gap-2">
+
+        <% @roles.each_with_index do |role, index| %>
+          <div>
+            <%= session[:role_page] + index + 1 %>
+            <% session[:role_index] = session[:role_page]+index+1 %>
+          </div>
+
+          <div id="<%= dom_id role %>">
+            <%= render role %>
+          </div>
+
+          <div class="flex flex-row gap-4">
+              <%= link_to "Edit", edit_role_path(role), 
+                  data: { turbo_frame: "content_turbo_frame"},
+                  class: "rounded-lg py-3 px-5 bg-yellow-100 inline-block font-medium" %>
+              <%= button_to "Delete", role, method: :delete, class: "rounded-lg py-3 px-5 bg-red-100 font-medium" %>
+          </div>
+          
+          <div></div>        
+        <% end %>
+      </div>
+      <%= turbo_frame_tag "content_frame_tag_lists" %>
     </div>
+
+    <% if session[:role_index] < 3 %>
+      <div class="h-48"></div>
+    <% end %>
 
     <div class="flex overflow-x-auto min-w-full mt-4 justify-center">
       <%= paginate @roles %>
