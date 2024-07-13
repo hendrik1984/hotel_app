@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   has_one :profile, dependent: :destroy
+  has_many :user_roles
+  has_many :roles, through: :user_roles
 end

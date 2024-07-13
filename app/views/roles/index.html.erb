@@ -1,0 +1,50 @@
+<%= turbo_frame_tag "content_turbo_frame" do %>
+  <div class="w-full">
+    <% if notice.present? %>
+      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+    <% end %>
+
+    <% content_for :title, "Roles" %>
+
+    <div class="flex justify-between items-center">
+      <h1 class="font-bold text-4xl">Roles</h1>
+      <%= link_to "New role", new_role_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+    </div>
+
+    <div id="roles" class="relative overflow-x-auto min-w-full mt-4">
+      <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <tr>
+              <th scope="col" class="px-6 py-3">
+                Name
+              </th>
+              <th scope="col" class="px-6 py-3">
+              </th>
+              <th scope="col" class="px-6 py-3">
+                Actions
+              </th>
+          </tr>
+        </thead>
+        <tbody class="items-center">
+          <% @roles.each do |role| %>
+            <div id="<%= dom_id role %>">
+              <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <%= render role %>
+                <td class="flex space-x-2 px-6 py-4">
+                  <%= link_to "Edit", edit_role_path(role), 
+                      data: { turbo_frame: "content_turbo_frame"},
+                      class: "rounded-lg py-3 px-5 bg-yellow-100 inline-block font-medium" %>
+                  <%= button_to "Delete", role, method: :delete, class: "rounded-lg py-3 px-5 bg-red-100 font-medium" %>
+                </td>
+              </tr>
+            </div>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="flex overflow-x-auto min-w-full mt-4 justify-center">
+      <%= paginate @roles %>
+    </div>
+  </div>
+<% end %>
